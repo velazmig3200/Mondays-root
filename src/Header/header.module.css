@@ -1,0 +1,60 @@
+@import "../main.css";
+
+button {
+	border: none;
+}
+
+.header {
+	position: sticky;
+	display: flex;
+	flex-direction: row;
+	background-color: var(--bg-color);
+}
+
+.hamburger {
+	background-color: var(--bg-color);
+	position: absolute;
+	left: 10px;
+}
+
+.centerNav {
+	margin: auto;
+	display: flex;
+}
+.centerNav > * {
+	margin: 0 5px;
+}
+
+.scrollButtons {
+	font-weight: 1000;
+	font-size: 0.9em;
+}
+
+.dropdown {
+	margin: 0 20px;
+}
+
+.settings {
+	position: absolute;
+	right: 10px;
+}
+
+/* nav bar animations */
+.navBarAnime {
+	padding: 0 5px;
+	--color-fadeOut-time: 500ms;
+	transition: color var(--color-fadeOut-time),
+		border-color var(--color-fadeOut-time),
+		background-color var(--color-fadeOut-time);
+}
+.navBarAnime:hover {
+	margin-bottom: -4.5px;
+	border-bottom: 4.5px solid var(--white);
+	transition: border-bottom 300ms, margin-bottom 300ms,
+		color var(--color-fadeOut-time), border-color var(--color-fadeOut-time);
+}
+.navBarAnime:active {
+	transition: color 0ms;
+	border-bottom: 4.5px solid var(--main-color);
+	background-color: var(--gray);
+}
