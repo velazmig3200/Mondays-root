@@ -1,9 +1,11 @@
 :root {
 	--main-color: hsl(0, 85%, 55%);
+	/* --main-color: var(--blue1); */
 	--second-color: hsl(0, 55%, 55%);
 	--third-color: palevioletred;
-	--accent-color: hsl(57, 69%, 69%);
+	--accent-color: hsl(53, 83%, 60%);
 
+	--blue1: #37c;
 	--dark-gray: #222;
 	--gray: #444;
 	--white: #fff;
@@ -16,7 +18,7 @@
 	margin: 0;
 	padding: 0;
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
-	font-size: 30px;
+	font-size: 22px;
 	background-color: var(--bg-color);
 	color: var(--white);
 

@@ -1,9 +1,9 @@
 import React from "react";
 import headerCss from "./header.module.css";
 
-function Dropdown() {
+function MonthButton() {
 	return (
-		<button className={`${headerCss.dropdown} ${headerCss.navBarAnime}`}>
+		<button className={`${headerCss.monthButton} ${headerCss.navBarAnime}`}>
 			February 2023
 			<span
 				style={{
@@ -17,4 +17,4 @@ function Dropdown() {
 	);
 }
 
-export default Dropdown;
+export default MonthButton;

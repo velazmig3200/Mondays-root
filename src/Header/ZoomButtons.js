@@ -13,6 +13,10 @@ function ZoomButtons() {
 	//rect 2
 	let rect2Width = buttonWidth / 1.2;
 	let rect2Height = rect2Width / 1.5;
+	//color
+	let root = document.querySelector(":root");
+	let rootStyles = getComputedStyle(root);
+	let cssMainColor = rootStyles.getPropertyValue("--main-color");
 
 	return (
 		<div style={{ height: 0 }}>
@@ -48,9 +52,9 @@ function ZoomButtons() {
 						rx={`${rx}`}
 						width={`${rect1Width}`}
 						height={`${rect1Height}`}
-						stroke="red"
+						stroke={`${cssMainColor}`}
 						strokeWidth={`${strokeWidth}`}
-						fill="red"
+						fill={`${cssMainColor}`}
 					/>
 					Sorry, your browser does not support inline SVG.
 				</svg>
@@ -74,9 +78,9 @@ function ZoomButtons() {
 						rx={`${rx}`}
 						width={`${rect2Width}`}
 						height={`${rect2Height}`}
-						stroke="red"
+						stroke={`${cssMainColor}`}
 						strokeWidth={`${strokeWidth}`}
-						fill="red"
+						fill={`${cssMainColor}`}
 					/>
 					{/* rect 1 */}
 					<rect

@@ -1,6 +1,6 @@
 import React from "react";
 import headerCss from "./header.module.css";
-import Dropdown from "./Dropdown";
+import MonthButton from "./MonthButton";
 import ScrollButtons from "./ScrollButtons";
 import ZoomButtons from "./ZoomButtons";
 
@@ -8,7 +8,7 @@ function CenterNav() {
 	return (
 		<div className={`${headerCss.centerNav}`}>
 			<ScrollButtons />
-			<Dropdown />
+			<MonthButton />
 			<ZoomButtons />
 		</div>
 	);
