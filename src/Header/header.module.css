@@ -3,6 +3,8 @@
 button {
 	border: none;
 	padding: 0 5px;
+	border-top-right-radius: 1px;
+	border-top-left-radius: 1px;
 }
 
 /* nav bar animations */
@@ -16,7 +18,7 @@ button {
 	margin-bottom: -4.5px;
 	border-bottom: 4.5px solid var(--white);
 	transition: border-bottom 300ms, margin-bottom 300ms,
-		color var(--color-fadeOut-time), border-color var(--color-fadeOut-time);
+		border-color var(--color-fadeOut-time);
 }
 .navBarAnime:active {
 	transition: color 0ms;
@@ -27,25 +29,45 @@ button {
 	background-color: transparent;
 }
 
+.dropdownParent {
+	position: relative;
+}
 .dropdown {
 	position: absolute;
-	left: 10px;
+	left: 0;
 	display: none;
 	flex-direction: column;
 	width: fit-content;
 	padding: 6px 10px;
-	background-color: var(--gray);
 	border-radius: 2px;
+	border: 1px solid var(--accent-color);
 }
 .dropdown > * {
-	background-color: var(--gray);
+	user-select: none;
 }
 .dropdownActive {
 	display: flex;
 }
+.dropdownButton {
+	margin-bottom: 2px;
+	padding: 2px 9px;
+	border-radius: 2px;
+}
+.dropdownButton:hover {
+	outline: 1px solid var(--accent-color);
+}
+.dropdownButton:active {
+	background-color: var(--gray);
+}
+.dropdownSettings {
+	left: auto;
+	right: 10px;
+	border-top-right-radius: 0px;
+}
 
 .active {
 	background-color: var(--accent-color);
+	color: var(--bg-color);
 }
 
 .header {
@@ -59,7 +81,6 @@ button {
 .hamburger {
 	position: relative;
 	display: block;
-	margin-left: 10px;
 }
 
 .logo {
@@ -80,7 +101,8 @@ button {
 }
 
 .monthButton {
-	margin: 0 20px;
+	min-width: 146px;
+	border-bottom-right-radius: 1px;
 }
 
 .settings {

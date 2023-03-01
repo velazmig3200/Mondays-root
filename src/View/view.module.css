@@ -1,0 +1,57 @@
+@import "../main.css";
+
+.viewContainer {
+	margin-top: 10px;
+	position: relative;
+	z-index: -1;
+}
+
+.weekHeader {
+	display: flex;
+	flex-direction: row;
+	margin: auto;
+	position: relative;
+	width: 95vw;
+	outline: 1px solid var(--main-color);
+	font-size: 0.7em;
+}
+.weekHeader > * {
+	text-align: center;
+	width: 100%;
+}
+
+.monthContainer {
+	width: 95vw;
+	height: 80vh;
+	position: relative;
+	/* outline: 1px solid var(--main-color); */
+	margin: auto;
+	margin-top: 1px;
+	overflow-y: auto;
+	scroll-behavior: smooth;
+}
+.monthContainer::-webkit-scrollbar {
+	background-color: var(--black);
+	/* width: 10px; */
+	width: 0px;
+}
+.monthContainer::-webkit-scrollbar-thumb {
+	background-color: var(--white);
+	border-radius: 2px;
+}
+
+.monthContainer::-webkit-scrollbar-thumb:hover {
+	background-color: var(--light-gray);
+}
+.month {
+	background-color: #444;
+	outline: 1px solid var(--main-color);
+	width: 100%;
+	min-height: 200px;
+	height: fit-content;
+	position: relative;
+	margin: 90px auto;
+}
+.month:last-child {
+	margin-bottom: 400px;
+}

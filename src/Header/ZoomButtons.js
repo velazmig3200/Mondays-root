@@ -1,7 +1,7 @@
 import React from "react";
 import headerCss from "./header.module.css";
 
-function ZoomButtons() {
+function ZoomButtons({ mainView, setMainView }) {
 	//button sizing
 	let buttonWidth = 30; //30
 	let buttonHeight = buttonWidth / 1.5;
@@ -20,13 +20,53 @@ function ZoomButtons() {
 
 	return (
 		<div style={{ height: 0 }}>
-			{/* ________________________________________________zoom In */}
+			{/* _________________________zoom Out___________________________ */}
 			<button
+				onClick={() => {
+					mainView > 0 && setMainView(mainView - 1);
+				}}
+				className={`${headerCss.zoomOut} ${headerCss.navBarAnime}`}
+				style={{ width: "fit-content", paddingRight: "3px", marginRight: "10px" }}>
+				<svg
+					style={{
+						width: buttonWidth + "px",
+						height: buttonHeight + "px",
+						backgroundColor: "transparent"
+					}}>
+					{/* rect 2 */}
+					<rect
+						x={`${buttonWidth / 60}`}
+						y={`${buttonHeight / 40}`}
+						rx={`${rx}`}
+						width={`${rect2Width}`}
+						height={`${rect2Height}`}
+						stroke={`${cssMainColor}`}
+						strokeWidth={`${strokeWidth}`}
+						fill={`${cssMainColor}`}
+					/>
+					{/* rect 1 */}
+					<rect
+						x={`${buttonWidth / 2}`}
+						y={`${buttonHeight / 2}`}
+						rx={`${rx}`}
+						width={`${rect1Width}`}
+						height={`${rect1Height}`}
+						stroke="white"
+						strokeWidth={`${strokeWidth}`}
+						fill="transparent"
+					/>
+					Sorry, your browser does not support inline SVG.
+				</svg>
+			</button>
+			{/* _______________________zoom In_________________________ */}
+			<button
+				onClick={() => {
+					mainView < 2 && setMainView(mainView + 1);
+				}}
 				className={`${headerCss.zoomIn} ${headerCss.navBarAnime}`}
 				style={{
 					width: "fit-content",
-					paddingRight: "3px",
-					marginRight: "10px"
+					paddingRight: "3px"
 				}}>
 				<svg
 					style={{
@@ -55,43 +95,6 @@ function ZoomButtons() {
 						stroke={`${cssMainColor}`}
 						strokeWidth={`${strokeWidth}`}
 						fill={`${cssMainColor}`}
-					/>
-					Sorry, your browser does not support inline SVG.
-				</svg>
-			</button>
-
-			{/* ___________________________________________________zoom Out */}
-
-			<button
-				className={`${headerCss.zoomOut} ${headerCss.navBarAnime}`}
-				style={{ width: "fit-content", paddingRight: "3px" }}>
-				<svg
-					style={{
-						width: buttonWidth + "px",
-						height: buttonHeight + "px",
-						backgroundColor: "transparent"
-					}}>
-					{/* rect 2 */}
-					<rect
-						x={`${buttonWidth / 60}`}
-						y={`${buttonHeight / 40}`}
-						rx={`${rx}`}
-						width={`${rect2Width}`}
-						height={`${rect2Height}`}
-						stroke={`${cssMainColor}`}
-						strokeWidth={`${strokeWidth}`}
-						fill={`${cssMainColor}`}
-					/>
-					{/* rect 1 */}
-					<rect
-						x={`${buttonWidth / 2}`}
-						y={`${buttonHeight / 2}`}
-						rx={`${rx}`}
-						width={`${rect1Width}`}
-						height={`${rect1Height}`}
-						stroke="white"
-						strokeWidth={`${strokeWidth}`}
-						fill="transparent"
 					/>
 					Sorry, your browser does not support inline SVG.
 				</svg>

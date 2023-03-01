@@ -1,13 +1,15 @@
 :root {
-	--main-color: hsl(0, 85%, 55%);
-	/* --main-color: var(--blue1); */
+	/* --main-color: hsl(0, 85%, 55%); */
+	--main-color: var(--blue1);
 	--second-color: hsl(0, 55%, 55%);
 	--third-color: palevioletred;
 	--accent-color: hsl(53, 83%, 60%);
 
 	--blue1: #37c;
+	--black: #000;
 	--dark-gray: #222;
 	--gray: #444;
+	--light-gray: #888;
 	--white: #fff;
 
 	--bg-color: var(--dark-gray);
@@ -24,4 +26,11 @@
 
 	/* debug */
 	/* outline: 1px dotted var(--debug-color); */
+}
+
+body,
+body > div,
+body > div > div {
+	position: relative;
+	z-index: -1;
 }
