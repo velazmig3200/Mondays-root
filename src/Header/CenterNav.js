@@ -11,7 +11,9 @@ function CenterNav({
 	year,
 	setYear,
 	mainView,
-	setMainView
+	setMainView,
+	navDate,
+	setNavDate
 }) {
 	return (
 		<div className={`${headerCss.centerNav}`}>
@@ -21,6 +23,8 @@ function CenterNav({
 				setMonth={setMonth}
 				year={year}
 				setYear={setYear}
+				navDate={navDate}
+				setNavDate={setNavDate}
 			/>
 			<MonthButton
 				date={date}
@@ -28,6 +32,8 @@ function CenterNav({
 				setMonth={setMonth}
 				year={year}
 				setYear={setYear}
+				navDate={navDate}
+				setNavDate={setNavDate}
 			/>
 			<ZoomButtons setMainView={setMainView} mainView={mainView} />
 		</div>

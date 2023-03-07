@@ -1,8 +1,16 @@
 import React, { useState } from "react";
 import headerCss from "./header.module.css";
 
-function MonthButton({ date, month, setMonth, year, setYear }) {
-	const [active, setActive] = useState("");
+function MonthButton({
+	date,
+	month,
+	setMonth,
+	year,
+	setYear,
+	navDate,
+	setNavDate
+}) {
+	const [active, setActive] = useState(null);
 	const [dropdownActive, setDropdownActive] = useState("");
 	const [navBarAnime, setNavBarAnime] = useState(headerCss.navBarAnime);
 	const [scrollYear, setScrollYear] = useState(0);
@@ -18,6 +26,7 @@ function MonthButton({ date, month, setMonth, year, setYear }) {
 					setYear(year + scrollYear);
 					setScrollYear(0);
 					monthClick();
+					setNavDate(!navDate);
 				}}
 				className={`${headerCss.dropdownButton}`}
 				style={{ fontFamily: "Courier new" }}>
@@ -27,14 +36,14 @@ function MonthButton({ date, month, setMonth, year, setYear }) {
 	}
 
 	function monthClick() {
-		if (active == "") {
+		if (active) {
+			setActive(null);
+			setDropdownActive("");
+			setNavBarAnime(headerCss.navBarAnime);
+		} else {
 			setActive(headerCss.active);
 			setDropdownActive(headerCss.dropdownActive);
 			setNavBarAnime("");
-		} else {
-			setActive("");
-			setDropdownActive("");
-			setNavBarAnime(headerCss.navBarAnime);
 		}
 	}
 
@@ -75,6 +84,7 @@ function MonthButton({ date, month, setMonth, year, setYear }) {
 					onClick={() => {
 						setMonth(date.newMonth());
 						setYear(date.newYear());
+						setNavDate(!navDate);
 					}}
 					className={`${headerCss.dropdownButton}`}
 					style={{

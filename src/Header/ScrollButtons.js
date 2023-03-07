@@ -1,7 +1,15 @@
 import React from "react";
 import headerCss from "./header.module.css";
 
-function ScrollButtons({ date, month, setMonth, year, setYear }) {
+function ScrollButtons({
+	date,
+	month,
+	setMonth,
+	year,
+	setYear,
+	navDate,
+	setNavDate
+}) {
 	const currentIndex = date.months.indexOf(month);
 
 	return (
@@ -14,6 +22,7 @@ function ScrollButtons({ date, month, setMonth, year, setYear }) {
 						setMonth(date.months[date.months.length - 1]);
 						setYear(year - 1);
 					}
+					setNavDate(!navDate);
 				}}
 				className={`${headerCss.scrollButtons} ${headerCss.navBarAnime}`}
 				style={{ marginRight: "10px" }}>
@@ -27,6 +36,7 @@ function ScrollButtons({ date, month, setMonth, year, setYear }) {
 						setMonth(date.months[0]);
 						setYear(year + 1);
 					}
+					setNavDate(!navDate);
 				}}
 				className={`${headerCss.scrollButtons} ${headerCss.navBarAnime}`}>
 				»

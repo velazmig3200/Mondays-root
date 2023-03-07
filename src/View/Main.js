@@ -3,7 +3,17 @@ import Month from "./Month";
 import viewCss from "./view.module.css";
 import WeekHeader from "./WeekHeader";
 
-function Main({ date, calendars, month, setMonth, year, mainView }) {
+function Main({
+	date,
+	calendars,
+	month,
+	setMonth,
+	year,
+	setYear,
+	mainView,
+	navDate,
+	setNavDate
+}) {
 	const currentIndex = date.months.indexOf(month);
 	const numberDays = new Date(year, currentIndex + 1, 0).getDate();
 	const firstDay = date.days[new Date(year, currentIndex, 1).getDay()];
@@ -12,7 +22,15 @@ function Main({ date, calendars, month, setMonth, year, mainView }) {
 	return (
 		<div className={`${viewCss.viewContainer}`}>
 			<WeekHeader date={date} />
-			<Month date={date} month={month} setMonth={setMonth} />
+			<Month
+				date={date}
+				month={month}
+				year={year}
+				setYear={setYear}
+				setMonth={setMonth}
+				navDate={navDate}
+				setNavDate={setNavDate}
+			/>
 			{/* <p>
 				calendars:{" "}
 				<span style={{ color: "var(--debug-color" }}>{calendars.join(", ")}</span>

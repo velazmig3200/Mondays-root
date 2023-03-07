@@ -32,8 +32,8 @@
 }
 .monthContainer::-webkit-scrollbar {
 	background-color: var(--black);
-	/* width: 10px; */
-	width: 0px;
+	width: 2px;
+	/* width: 0px; */
 }
 .monthContainer::-webkit-scrollbar-thumb {
 	background-color: var(--white);
@@ -52,6 +52,19 @@
 	position: relative;
 	margin: 90px auto;
 }
-.month:last-child {
-	margin-bottom: 400px;
+
+.spacer {
+	/* outline: 1px solid red; */
+	height: 80vh;
+}
+.spacer > div {
+	/* border-bottom: 1px solid white; */
+	height: 50%;
+}
+.spacer > p,
+.spacer > div > p {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 50%;
 }

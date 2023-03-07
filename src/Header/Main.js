@@ -13,7 +13,9 @@ function Main({
 	year,
 	setYear,
 	mainView,
-	setMainView
+	setMainView,
+	navDate,
+	setNavDate
 }) {
 	return (
 		<div className={`${headerCss.header}`}>
@@ -29,6 +31,8 @@ function Main({
 				setYear={setYear}
 				mainView={mainView}
 				setMainView={setMainView}
+				navDate={navDate}
+				setNavDate={setNavDate}
 			/>
 			<Settings />
 		</div>
