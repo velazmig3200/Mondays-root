@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import viewCss from "./view.module.css";
 
-function Month({ date, month, year, setYear, setMonth, navDate, setNavDate }) {
+function Month({ date, month, year, setYear, setMonth, navDate }) {
 	let visibleMonth;
 	let smoothScrollID;
 	useEffect(() => {
@@ -35,19 +35,22 @@ function Month({ date, month, year, setYear, setMonth, navDate, setNavDate }) {
 		const containerRect = containerCurrent.getBoundingClientRect();
 		const containerScrollHeight =
 			containerCurrent.scrollHeight - containerRect.height;
+		const buffer = 20;
 
 		if (containerCurrent.scrollTop < 1) {
 			setYear(year - 1);
 			setMonth(date.months[date.months.length - 1]);
-			containerCurrent.scrollTop = containerScrollHeight - 220;
+			containerCurrent.scrollTop = containerScrollHeight - buffer;
 		} else if (containerCurrent.scrollTop > containerScrollHeight - 1) {
 			setYear(year + 1);
 			setMonth(date.months[0]);
-			containerCurrent.scrollTop = 220;
+			containerCurrent.scrollTop = buffer;
 		}
 
-		if (visibleMonth != Math.ceil((containerCurrent.scrollTop - 450) / 290) - 1) {
-			visibleMonth = Math.ceil((containerCurrent.scrollTop - 450) / 290) - 1;
+		const containerSubdivision =
+			Math.ceil((containerCurrent.scrollTop - 450) / 290) - 1; //290
+		if (visibleMonth != containerSubdivision) {
+			visibleMonth = containerSubdivision;
 			visibleMonth < 0 && (visibleMonth = 0);
 			visibleMonth > 11 && (visibleMonth = 11);
 			setMonth(date.months[visibleMonth]);
@@ -74,19 +77,9 @@ function Month({ date, month, year, setYear, setMonth, navDate, setNavDate }) {
 			ref={monthContainer}
 			onWheel={e => mouseWheel(e)}
 			className={`${viewCss.monthContainer}`}>
-			<div className={`${viewCss.spacer}`}>
-				<div>
-					<p>{year - 1}</p>
-				</div>
-				<p>{year}</p>
-			</div>
+			<div className={`${viewCss.spacer}`}></div>
 			{months()}
-			<div className={`${viewCss.spacer}`}>
-				<div>
-					<p>{year} </p>
-				</div>
-				<p>{year + 1} </p>
-			</div>
+			<div className={`${viewCss.spacer}`}></div>
 		</div>
 	);
 }

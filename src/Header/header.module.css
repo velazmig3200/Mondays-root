@@ -13,9 +13,9 @@ button {
 	transition: color var(--color-fadeOut-time),
 		border-color var(--color-fadeOut-time),
 		background-color var(--color-fadeOut-time);
+	border-bottom: 4.5px solid transparent;
 }
 .navBarAnime:hover {
-	margin-bottom: -4.5px;
 	border-bottom: 4.5px solid var(--white);
 	transition: border-bottom 300ms, margin-bottom 300ms,
 		border-color var(--color-fadeOut-time);
