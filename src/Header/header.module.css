@@ -76,6 +76,7 @@ button {
 	flex-direction: row;
 	background-color: var(--bg-color);
 	margin-top: 5px;
+	max-height: 30px;
 }
 
 .hamburger {

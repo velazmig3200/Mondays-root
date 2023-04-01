@@ -11,8 +11,8 @@
 	flex-direction: row;
 	margin: auto;
 	position: relative;
-	width: 95vw;
-	outline: 1px solid var(--main-color);
+	width: calc(100% - 2px);
+	border: 1px solid var(--main-color);
 	font-size: 0.7em;
 }
 .weekHeader > * {
@@ -21,19 +21,13 @@
 }
 
 .monthContainer {
-	width: 95vw;
-	height: 80vh;
-	position: relative;
-	/* outline: 1px solid var(--main-color); */
-	margin: auto;
-	margin-top: 1px;
-	overflow-y: auto;
-	scroll-behavior: smooth;
+	width: 100%;
+	overflow-y: scroll;
+	outline: 1px solid red;
 }
 .monthContainer::-webkit-scrollbar {
 	background-color: var(--black);
-	width: 2px;
-	/* width: 0px; */
+	width: 8px;
 }
 .monthContainer::-webkit-scrollbar-thumb {
 	background-color: var(--white);
@@ -54,8 +48,7 @@
 }
 
 .spacer {
-	/* outline: 1px solid red; */
-	height: 80vh;
+	height: 100%;
 }
 .spacer > div {
 	/* border-bottom: 1px solid white; */
