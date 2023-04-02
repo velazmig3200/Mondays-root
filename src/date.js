@@ -22,6 +22,9 @@ const date = {
 		"Friday",
 		"Saturday"
 	],
+	newDay() {
+		return new Date().getDate();
+	},
 	newMonth() {
 		return this.months[new Date().getMonth()];
 	},

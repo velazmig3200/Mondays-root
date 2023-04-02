@@ -14,9 +14,6 @@ function Main({
 	navDate,
 	setNavDate
 }) {
-	const currentIndex = date.months.indexOf(month);
-	const numberDays = new Date(year, currentIndex + 1, 0).getDate();
-	const firstDay = date.days[new Date(year, currentIndex, 1).getDay()];
 	const monthContainer = useRef(null);
 	const currentMonth = useRef(null);
 	const spacer = useRef(null);
@@ -72,8 +69,7 @@ function Main({
 			current.scrollTop = buffer;
 		}
 
-		const spacerRef = spacer.current.getBoundingClientRect().height;
-		const subdivision = Math.ceil((current.scrollTop - spacerRef * 1.3) / 290);
+		const subdivision = Math.floor((current.scrollTop / 7.4) * 0.01 - 0.5); //7.4: months + both spacers / 2; 0.01: covert to single digit; 0.5: y-offset;
 		if (visibleMonth != subdivision) {
 			visibleMonth = subdivision;
 			visibleMonth < 0 && (visibleMonth = 0);
@@ -90,6 +86,8 @@ function Main({
 					key={i}
 					currentMonth={month == date.months[i] ? currentMonth : null}
 					name={date.months[i]}
+					date={date}
+					year={year}
 				/>
 			);
 		}

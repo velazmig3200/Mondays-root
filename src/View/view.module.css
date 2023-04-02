@@ -9,9 +9,8 @@
 .weekHeader {
 	display: flex;
 	flex-direction: row;
-	margin: auto;
 	position: relative;
-	width: calc(100% - 2px);
+	width: calc(100% - 10px);
 	border: 1px solid var(--main-color);
 	font-size: 0.7em;
 }
@@ -23,7 +22,6 @@
 .monthContainer {
 	width: 100%;
 	overflow-y: scroll;
-	outline: 1px solid red;
 }
 .monthContainer::-webkit-scrollbar {
 	background-color: var(--black);
@@ -38,13 +36,17 @@
 	background-color: var(--light-gray);
 }
 .month {
-	background-color: #444;
-	outline: 1px solid var(--main-color);
+	/* background-color: #444; */
+	/* outline: 1px solid var(--main-color); */
 	width: 100%;
 	min-height: 200px;
 	height: fit-content;
-	position: relative;
 	margin: 90px auto;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+
+	/* overflow: hidden; */
 }
 
 .spacer {
@@ -60,4 +62,22 @@
 	justify-content: center;
 	align-items: center;
 	height: 50%;
+}
+
+.day {
+	--side-margin: 1px;
+	--side-padding: 4px;
+	width: calc(100% / 7 - (var(--side-margin) * 2) - (var(--side-padding) * 2));
+	/* border-radius: 10px; */
+	margin: var(--side-margin);
+	padding: 0px var(--side-padding);
+	background-color: var(--gray);
+	height: 120px;
+}
+.emptyDay {
+	background-color: transparent;
+}
+.isToday {
+	background-color: var(--main-color);
+	outline: 1px solid var(--white);
 }
