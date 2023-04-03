@@ -23,7 +23,7 @@ function Main({
 
 	useEffect(() => {
 		clearInterval(smoothScrollID);
-		smoothScrollID = setInterval(smoothScroll, 1);
+		smoothScrollID = setInterval(smoothScroll, 0);
 	}, [navDate]);
 
 	async function monthContainerHeight() {

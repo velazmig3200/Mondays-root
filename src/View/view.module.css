@@ -11,7 +11,8 @@
 	flex-direction: row;
 	position: relative;
 	width: calc(100% - 10px);
-	border: 1px solid var(--main-color);
+	border-top: 1px solid var(--main-color);
+	border-bottom: 1px solid var(--main-color);
 	font-size: 0.7em;
 }
 .weekHeader > * {
@@ -73,6 +74,7 @@
 	padding: 0px var(--side-padding);
 	background-color: var(--gray);
 	height: 120px;
+	overflow: hidden;
 }
 .emptyDay {
 	background-color: transparent;
@@ -80,4 +82,21 @@
 .isToday {
 	background-color: var(--main-color);
 	outline: 1px solid var(--white);
+}
+
+.previewCard {
+	border-radius: 3px;
+	padding: 2px 4px;
+	color: var(--black);
+	font-size: 0.6rem;
+	margin-bottom: 2px;
+	height: 0.7rem;
+	overflow: hidden;
+}
+.eventPreview {
+	background-color: var(--second-color);
+}
+.taskPreview {
+	background-color: var(--black);
+	color: var(--white);
 }

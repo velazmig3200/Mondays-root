@@ -35,7 +35,7 @@ function CenterNav({
 				navDate={navDate}
 				setNavDate={setNavDate}
 			/>
-			<ZoomButtons setMainView={setMainView} mainView={mainView} />
+			{/* <ZoomButtons setMainView={setMainView} mainView={mainView} /> */}
 		</div>
 	);
 }

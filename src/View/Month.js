@@ -1,6 +1,7 @@
 import React from "react";
 import viewCss from "./view.module.css";
 import Day from "./Day";
+import user1 from "../data";
 
 function Month({ currentMonth, name, date, year }) {
 	async function getRef() {
@@ -20,20 +21,35 @@ function Month({ currentMonth, name, date, year }) {
 
 	const days = () => {
 		let result = [];
+		let isToday = false;
+		let personalCalendar;
+
 		for (let i = 0; i < firstDay; i++) {
 			result.push(<Day key={i} isEmpty={true} />);
 		}
 
+		const monthIndex = date.months.indexOf(name); //month index
+		user1.personal[year][monthIndex] &&
+			(personalCalendar = user1.personal[year][monthIndex]);
 		for (let i = 0; i < numberOfDays; i++) {
 			if (
 				date.newYear() == year &&
 				date.newMonth() == name &&
 				date.newDay() - 1 == i
 			) {
-				result.push(<Day key={i + 7} number={i + 1} isToday={true} />);
+				isToday = true;
 			} else {
-				result.push(<Day key={i + 7} number={i + 1} />);
+				isToday = false;
 			}
+
+			result.push(
+				<Day
+					key={i + 7}
+					number={i + 1}
+					isToday={isToday}
+					personalCalendar={personalCalendar}
+				/>
+			);
 		}
 		return result;
 	};
