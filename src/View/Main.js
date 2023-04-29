@@ -88,6 +88,7 @@ function Main({
 					name={date.months[i]}
 					date={date}
 					year={year}
+					calendars={calendars}
 				/>
 			);
 		}
@@ -105,15 +106,6 @@ function Main({
 				{months()}
 				<div className={`${viewCss.spacer}`}></div>
 			</main>
-			{/* <Month
-				date={date}
-				month={month}
-				year={year}
-				setYear={setYear}
-				setMonth={setMonth}
-				navDate={navDate}
-				setNavDate={setNavDate}
-			/> */}
 			{/* <p>
 				calendars:{" "}
 				<span style={{ color: "var(--debug-color" }}>{calendars.join(", ")}</span>

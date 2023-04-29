@@ -83,6 +83,17 @@ const user1 = {
 							start: "12:30pm"
 						}
 					]
+				},
+				19: {
+					"9:00am": [
+						{
+							type: "event",
+							description: "Chris Birthday",
+							start: "9:00am",
+							end: "10:00am",
+							location: "movie theater"
+						}
+					]
 				}
 			}
 		}

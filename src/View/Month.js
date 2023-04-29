@@ -3,7 +3,13 @@ import viewCss from "./view.module.css";
 import Day from "./Day";
 import user1 from "../data";
 
-function Month({ currentMonth, name, date, year }) {
+function Month({ currentMonth, name, date, year, calendars }) {
+	//debug
+	if (!!currentMonth) {
+		console.log(name);
+	}
+	//debug
+
 	async function getRef() {
 		await new Promise(resolve => {
 			resolve(currentMonth.current);
@@ -22,15 +28,21 @@ function Month({ currentMonth, name, date, year }) {
 	const days = () => {
 		let result = [];
 		let isToday = false;
-		let personalCalendar;
 
 		for (let i = 0; i < firstDay; i++) {
 			result.push(<Day key={i} isEmpty={true} />);
 		}
 
-		const monthIndex = date.months.indexOf(name); //month index
-		user1.personal[year][monthIndex] &&
-			(personalCalendar = user1.personal[year][monthIndex]);
+		const monthIndex = date.months.indexOf(name);
+		function getCalendarData(calendarType) {
+			if (
+				calendars.includes(calendarType) &&
+				user1[calendarType][year] &&
+				user1[calendarType][year][monthIndex]
+			) {
+				return user1[calendarType][year][monthIndex];
+			}
+		}
 		for (let i = 0; i < numberOfDays; i++) {
 			if (
 				date.newYear() == year &&
@@ -44,15 +56,26 @@ function Month({ currentMonth, name, date, year }) {
 
 			result.push(
 				<Day
-					key={i + 7}
+					key={Math.random()}
 					number={i + 1}
 					isToday={isToday}
-					personalCalendar={personalCalendar}
+					personalCalendar={getCalendarData("personal")}
+					workCalendar={getCalendarData("work")}
 				/>
 			);
 		}
 		return result;
 	};
+
+	// let currentDay;
+	// setInterval(() => {
+	// 	if (currentDay != date.newDay()) {
+	// 		currentDay = date.newDay();
+	// 		console.log("! equal", currentDay, date.newDay());
+	// 	} else {
+	// 		console.log("equal");
+	// 	}
+	// }, 1000);
 
 	return (
 		<div ref={currentMonth} className={`${viewCss.month}`}>

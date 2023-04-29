@@ -2,7 +2,7 @@ import React from "react";
 import viewCss from "./view.module.css";
 import PreviewCard from "./PreviewCard";
 
-function Day({ isEmpty, number, isToday, personalCalendar }) {
+function Day({ isEmpty, number, isToday, personalCalendar, workCalendar }) {
 	function getEvents(calendar) {
 		let result = [];
 		if (calendar && calendar[number]) {
@@ -27,6 +27,7 @@ function Day({ isEmpty, number, isToday, personalCalendar }) {
 			className={`${viewCss.day} ${isEmpty && viewCss.emptyDay} 
             ${isToday && viewCss.isToday}`}>
 			{number} {personalCalendar && getEvents(personalCalendar)}
+			{workCalendar && getEvents(workCalendar)}
 		</div>
 	);
 }
